@@ -6,25 +6,13 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TestController;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
- */
+use App\Http\Controllers\ArticleController;
 
 // Route::get('/', function () {
 //     return view('welcome');
 // })->name('welcome');;
 
-Route::get('article/{n}', function ($n) {
-	return view('article')->with('numero', $n);
-})->where('n', '[0-9]+')->name('article');
+Route::get('article/{n}', [ArticleController::class, 'show'])->where('n', '[0-9]+')->name('article');
 
 Route::get('facture/{n}', function ($n) {
 	return view('facture')->withNumero($n);
