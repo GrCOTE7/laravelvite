@@ -5,6 +5,7 @@
  */
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,11 +18,9 @@ use Illuminate\Support\Facades\Route;
 |
  */
 
-// Route::get('t', 'testController@index');
-
-Route::get('/', function () {
-	return view('welcome');
-})->name('welcome');;
+// Route::get('/', function () {
+//     return view('welcome');
+// })->name('welcome');;
 
 Route::get('article/{n}', function ($n) {
 	return view('article')->with('numero', $n);
@@ -31,9 +30,9 @@ Route::get('facture/{n}', function ($n) {
 	return view('facture')->withNumero($n);
 })->where('n', '[0-9]+')->name('facture');
 
-Route::get('t', function () {
-	return view('test');
-})->name('test');
+Route::get('t', [TestController::class, 'index'])->name('test');
+
+// Route::get('t', 'testController@index');
 
 // Route::get('arr', function () {
 // 	return ['un', 'deux', 'trois'];
