@@ -20,20 +20,20 @@ use Illuminate\Support\Facades\Route;
 // Route::get('t', 'testController@index');
 
 Route::get('/', function () {
-	return view('test');
-});
+	return view('welcome');
+})->name('welcome');;
 
 Route::get('article/{n}', function ($n) {
 	return view('article')->with('numero', $n);
-})->where('n', '[0-9]+');
+})->where('n', '[0-9]+')->name('article');
 
 Route::get('facture/{n}', function ($n) {
 	return view('facture')->withNumero($n);
-})->where('n', '[0-9]+');
+})->where('n', '[0-9]+')->name('facture');
 
 Route::get('t', function () {
 	return view('test');
-});
+})->name('test');
 
 // Route::get('arr', function () {
 // 	return ['un', 'deux', 'trois'];

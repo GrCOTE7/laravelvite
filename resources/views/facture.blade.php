@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('title')
-    Factures
+    Facture
 @endsection
 
 @section('main')

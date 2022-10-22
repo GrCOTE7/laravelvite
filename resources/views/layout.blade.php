@@ -11,7 +11,8 @@
 </head>
 
 <body>
-    @include('partials.nav', ['slider' => true])
+
+    @include('partials.nav')
 
     <main>
         @yield('main')
