@@ -1,8 +1,13 @@
 body {
     font-family: arial;
     background-color: beige;
+    font-size: 1.2em;
 }
 
 main {
     margin: 20px;
+}
+
+p {
+    font-size: 1.5em;
 }

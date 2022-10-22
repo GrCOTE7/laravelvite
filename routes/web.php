@@ -24,7 +24,7 @@ Route::get('/', function () {
 });
 
 Route::get('article/{n}', function ($n) {
-	return view('article')->withNumero($n);
+	return view('article')->with('numero', $n);
 })->where('n', '[0-9]+');
 
 Route::get('facture/{n}', function ($n) {
