@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * (ɔ) Online FORMAPRO - GrCOTE7 - 2022.
+ */
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -11,8 +15,30 @@ use Illuminate\Support\Facades\Route;
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+ */
+
+// Route::get('t', 'testController@index');
 
 Route::get('/', function () {
-    return view('welcome');
+	return view('test');
 });
+
+Route::get('article/{n}', function ($n) {
+	return view('article')->withNumero($n);
+})->where('n', '[0-9]+');
+
+Route::get('facture/{n}', function ($n) {
+	return view('facture')->withNumero($n);
+})->where('n', '[0-9]+');
+
+Route::get('t', function () {
+	return view('test');
+});
+
+// Route::get('arr', function () {
+// 	return ['un', 'deux', 'trois'];
+// });
+
+// Route::get('{n?}', function (int $n = 1): string {
+// 	return 'Je suis la page ' . $n . ' !';
+// })->where('n', '[1-3]');

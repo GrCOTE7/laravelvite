@@ -405,7 +405,7 @@
 
 	<link rel="icon" href="favicon.ico" type="image/x-icon" />
 
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+	@vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
 <body class="antialiased">
@@ -448,7 +448,7 @@
 								</path>
 							</svg>
 							<div class="ml-4 text-lg leading-7 font-semibold"><a href="https://laravel.com/docs"
-									class="underline text-gray-900 dark:text-white">Documentation</a></div>
+									class="underline text-gray-900 dark:text-white">Documentation <?= 1+2 ?></a></div>
 						</div>
 
 						<div class="ml-12">
