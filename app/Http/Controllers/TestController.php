@@ -10,6 +10,8 @@ class TestController extends Controller
 {
 	public function index()
 	{
-		return view('pages.test')->with('data', 123);
+		$data = __('messages.welcome', ['name' => ucfirst('lionel')]);
+
+		return view('pages.test')->with('data', $data);
 	}
 }

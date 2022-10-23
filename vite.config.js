@@ -9,7 +9,8 @@ export default defineConfig({
                 'resources/routes/**',
                 'routes/**',
                 'resources/views/**',
-                'app/**'
+                'app/**',
+                'config/**',
             ],
         }),
     ],
