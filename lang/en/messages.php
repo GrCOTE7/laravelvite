@@ -5,5 +5,5 @@
  */
 
 return [
-	'welcome' => 'Welcome to our application',
+	'welcome' => 'Welcome to our application, :name & :name2',
 ];
