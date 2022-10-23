@@ -10,6 +10,6 @@ class ArticleController extends Controller
 {
 	public function show($n)
 	{
-		return view('article')->with('numero', 5);
+		return view('pages.article')->with('numero', 5);
 	}
 }

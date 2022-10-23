@@ -10,6 +10,6 @@ class TestController extends Controller
 {
 	public function index()
 	{
-		return view('test')->with('data', 123);
+		return view('pages.test')->with('data', 123);
 	}
 }
