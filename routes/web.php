@@ -5,6 +5,7 @@
  */
 
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
@@ -21,5 +22,8 @@ Route::get('facture/{n}', function ($n) {
 
 Route::get('t', [TestController::class, 'index'])->name('test');
 
-Route::get('users', [UsersController::class, 'create']);
-Route::post('users', [UsersController::class, 'store']);
+Route::get('users', [UsersController::class, 'create'])->name('users');
+Route::post('users', [UsersController::class, 'store'])->name('users');
+
+Route::get('contact', [ContactController::class, 'create']);
+Route::post('contact', [ContactController::class, 'store']);

@@ -11,9 +11,15 @@ body {
 }
 
 nav {
-    padding: 5px;
+    text-decoration: none!important;
+    /* padding: 5px; */
     background-color: yellow;
     border-bottom: 3px solid orange;
+}
+
+nav a {
+    text-decoration: none!important;
+    padding: 0 5px;
 }
 
 nav a.active {
