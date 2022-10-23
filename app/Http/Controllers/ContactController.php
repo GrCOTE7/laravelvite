@@ -6,7 +6,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\ContactRequest;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class ContactController extends Controller
 {
@@ -25,8 +26,18 @@ class ContactController extends Controller
 	 *
 	 * @return \Illuminate\Http\Response
 	 */
-	public function store(ContactRequest $request)
+	public function store(Request $request)
 	{
+		$validator = Validator::make($request->all(), [
+			'nom'     => 'bail|required|between:5,20|alpha',
+			'email'   => 'bail|required|email',
+			'message' => 'bail|required|max:250',
+		]);
+
+		if ($validator->fails()) {
+			return back()->withErrors($validator)->withInput();
+		}
+
 		return view('pages.confirm');
 	}
 }
