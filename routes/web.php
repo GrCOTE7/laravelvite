@@ -23,13 +23,3 @@ Route::get('t', [TestController::class, 'index'])->name('test');
 
 Route::get('users', [UsersController::class, 'create']);
 Route::post('users', [UsersController::class, 'store']);
-
-// Route::get('t', 'testController@index');
-
-// Route::get('arr', function () {
-// 	return ['un', 'deux', 'trois'];
-// });
-
-// Route::get('{n?}', function (int $n = 1): string {
-// 	return 'Je suis la page ' . $n . ' !';
-// })->where('n', '[1-3]');
