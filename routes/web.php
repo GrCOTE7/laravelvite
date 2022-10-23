@@ -4,13 +4,13 @@
  * (ɔ) Online FORMAPRO - GrCOTE7 - 2022.
  */
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\TestController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\TestController;
+use Illuminate\Support\Facades\Route;
 
-// Route::get('/', function () {
-//     return view('welcome');
-// })->name('welcome');;
+Route::get('/', function () {
+	return view('welcome');
+})->name('welcome');
 
 Route::get('article/{n}', [ArticleController::class, 'show'])->where('n', '[0-9]+')->name('article');
 
