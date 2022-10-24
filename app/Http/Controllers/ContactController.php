@@ -7,6 +7,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ContactRequest;
+use App\Mail\Contact;
+use Illuminate\Support\Facades\Mail;
 
 class ContactController extends Controller
 {
@@ -27,6 +29,9 @@ class ContactController extends Controller
 	 */
 	public function store(ContactRequest $request)
 	{
+		Mail::to('administrateur@chezmoi.com')
+			->send(new Contact($request->except('_token')));
+
 		return view('pages.confirm');
 	}
 }
