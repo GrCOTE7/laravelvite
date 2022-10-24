@@ -10,8 +10,7 @@ class TestController extends Controller
 {
 	public function index()
 	{
-		$data = __('messages.welcome', ['name' => ucfirst('lionel'), 'name2' => 'MP']);
-
-		return view('pages.test')->with('data', $data);
+		$data = config('view.paths');
+		return view('pages.test')->with('data', implode(',',$data));
 	}
 }
