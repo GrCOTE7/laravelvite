@@ -1,7 +1,8 @@
-*, html {
+*, ::after, ::before {
     margin: 0;
     padding: 0;
     text-decoration: none;
+    box-sizing: border-box;
 }
 
 body {
@@ -12,14 +13,14 @@ body {
 
 nav {
     text-decoration: none!important;
-    /* padding: 5px; */
+    padding: 3px;
     background-color: yellow;
     border-bottom: 3px solid orange;
 }
 
 nav a {
     text-decoration: none!important;
-    padding: 0 5px;
+    padding: 3px 5px;
 }
 
 nav a.active {
