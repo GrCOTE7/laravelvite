@@ -7,6 +7,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ImagesRequest;
+use App\Repositories\PhotoRepository;
 
 class PhotoController extends Controller
 {
@@ -15,9 +16,9 @@ class PhotoController extends Controller
 		return view('pages.photo');
 	}
 
-	public function store(ImagesRequest $request)
+	public function store(ImagesRequest $request, PhotoRepository $photoRepository)
 	{
-		$request->image->store(config('images.path'), 'public');
+		$photoRepository->save($request->image);
 
 		return view('pages.photo_ok');
 	}
