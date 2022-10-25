@@ -8,10 +8,7 @@ namespace App\Repositories;
 
 use Illuminate\Http\UploadedFile;
 
-class PhotoRepository
+interface PhotosRepositoryInterface
 {
-	public function save(UploadedFile $image)
-	{
-		$image->store(config('image.path'), 'public');
-	}
+	public function save(UploadedFile $image);
 }
