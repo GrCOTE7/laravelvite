@@ -10,6 +10,7 @@ use App\Http\Controllers\EmailController;
 use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\UsersController;
+use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
 	return view('pages.welcome');
@@ -39,8 +40,6 @@ Route::get('/test-contact', function () {
 		'message' => 'Je voulais vous dire que votre site est magnifique !',
 	]);
 });
-
-use Illuminate\Support\Facades\Route;
 
 Route::get('photo', [PhotoController::class, 'create']);
 Route::post('photo', [PhotoController::class, 'store']);
