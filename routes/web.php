@@ -24,11 +24,11 @@ Route::get('facture/{n}', function ($n) {
 
 Route::get('t', [TestController::class, 'index'])->name('test');
 
-Route::get('users', [UsersController::class, 'create'])->name('users');
-Route::post('users', [UsersController::class, 'store'])->name('users');
+Route::get('users', [UsersController::class, 'create'])->name('users.create');
+Route::post('users', [UsersController::class, 'store'])->name('users.store');
 
-Route::get('contact', [ContactController::class, 'create']);
-Route::post('contact', [ContactController::class, 'store']);
+Route::get('contact', [ContactController::class, 'create'])->name('contact.create');
+Route::post('contact', [ContactController::class, 'store'])->name('contact.store');
 
 Route::get('email', [EmailController::class, 'index']);
 

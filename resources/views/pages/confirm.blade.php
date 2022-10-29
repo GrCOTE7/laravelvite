@@ -10,7 +10,7 @@
         <div class="row card text-white bg-dark">
             <h4 class="card-header">Bravo !</h4>
             <div class="card-body">
-                <p class="card-text">Merci. Votre message a été transmis à l'administrateur du site. Vous recevrez une
+                <p class="card-text">Merci. Votre message a bien été enregistré et transmis à l'administrateur du site. Vous recevrez une
                     réponse rapidement.</p>
             </div>
         </div>
