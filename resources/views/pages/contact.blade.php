@@ -10,7 +10,7 @@
         <div class="row card text-white bg-dark">
             <h4 class="card-header">Contactez-moi</h4>
             <div class="card-body">
-                <form action="{{ url('contact') }}" method="POST">
+                <form action="{{ route('contact.store') }}" method="POST">
                     @csrf
 
                     <div class="mb-3">

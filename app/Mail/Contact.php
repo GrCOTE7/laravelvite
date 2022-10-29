@@ -26,7 +26,6 @@ class Contact extends Mailable
 	 */
 	public function __construct(array $contact)
 	{
-		echo 'oki';
 		$this->contact = $contact;
 	}
 
