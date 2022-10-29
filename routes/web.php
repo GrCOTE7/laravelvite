@@ -30,8 +30,6 @@ Route::post('users', [UsersController::class, 'store'])->name('users.store');
 Route::get('contact', [ContactController::class, 'create'])->name('contact.create');
 Route::post('contact', [ContactController::class, 'store'])->name('contact.store');
 
-Route::get('email', [EmailController::class, 'index']);
-
 // https://mailtrap.io
 Route::get('/test-contact', function () {
 	return new App\Mail\Contact([
