@@ -133,4 +133,8 @@ return [
             'rule-name' => 'custom-message',
         ],
     ],
+    'attributes' => [
+        'title' => 'titre',
+        'year' => 'année',
+    ],
 ];

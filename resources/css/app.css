@@ -9,6 +9,7 @@ body {
     font-family: arial;
     background-color: beige;
     font-size: 1.2em;
+    height: 100vh;
 }
 
 nav {
@@ -41,5 +42,13 @@ p {
 }
 
 .pagination {
-    margin: 2px auto;
+    margin: 10px auto;
+}
+
+.label {
+    font-size: 1.4rem;
+}
+
+.is-info {
+    margin: 0.5em;
 }

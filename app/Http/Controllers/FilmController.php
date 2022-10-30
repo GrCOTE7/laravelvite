@@ -11,14 +11,9 @@ use App\Models\Film;
 
 class FilmController extends Controller
 {
-	/**
-	 * Display a listing of the resource.
-	 *
-	 * @return \Illuminate\Http\Response
-	 */
 	public function index()
 	{
-		$films = Film::paginate(5);
+		$films = Film::oldest('title')->paginate(5);
 
 		return view('pages.film.index', compact('films'));
 	}
@@ -30,6 +25,7 @@ class FilmController extends Controller
 	 */
 	public function create()
 	{
+		return view('pages.film.create');
 	}
 
 	/**
@@ -39,31 +35,21 @@ class FilmController extends Controller
 	 *
 	 * @return \Illuminate\Http\Response
 	 */
-	public function store(FilmRequest $request)
+	public function store(FilmRequest $filmRequest)
 	{
+		Film::create($filmRequest->all());
+
+		return redirect()->route('film.index')->with('info', 'Le film a bien été crée.');
 	}
 
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param int $id
-	 *
-	 * @return \Illuminate\Http\Response
-	 */
 	public function show(Film $film)
 	{
 		return view('pages.film.show', compact('film'));
 	}
 
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param int $id
-	 *
-	 * @return \Illuminate\Http\Response
-	 */
-	public function edit($id)
+	public function edit(Film $film)
 	{
+		return view('pages.film.edit', compact('film'));
 	}
 
 	/**
@@ -74,8 +60,11 @@ class FilmController extends Controller
 	 *
 	 * @return \Illuminate\Http\Response
 	 */
-	public function update(FilmRequest $request, $id)
+	public function update(FilmRequest $filmRequest, Film $film)
 	{
+		$film->update($filmRequest->all());
+
+		return redirect()->route('film.index')->with('info', 'Le film a bien été mis à jour.');
 	}
 
 	public function destroy(Film $film)

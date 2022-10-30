@@ -10,6 +10,7 @@
     <div class="card">
         <header class="card-header">
             <p class="card-header-title">Films</p>
+            <a class="button is-info" href="{{ route('film.create') }}">Créer un film</a>
         </header>
         <div class="card-content">
             <div class="content">
@@ -17,7 +18,6 @@
                     <caption>Liste des films</caption>
                     <thead>
                         <tr>
-                            <th>#</th>
                             <th>Titre</th>
                             <th colspan="3" style="text-align: center">Action</th>
                         </tr>
@@ -25,7 +25,6 @@
                     <tbody>
                         @foreach ($films as $film)
                             <tr>
-                                <td style="text-align:right">{{ $film->id }}</td>
                                 <td><strong>{{ $film->title }}</strong></td>
                                 <td><a class="button is-primary" href="{{ route('film.show', $film->id) }}">Voir</a></td>
                                 <td><a class="button is-warning" href="{{ route('film.edit', $film->id) }}">Modifier</a>
