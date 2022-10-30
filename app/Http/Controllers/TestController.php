@@ -7,6 +7,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Test;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class TestController extends Controller
@@ -18,7 +19,31 @@ class TestController extends Controller
 	 */
 	public function index()
 	{
-		return view('pages/test')->with('data', 777);
+
+        $us = User::all();
+
+        $data = 'Le premier user est : ' . $us->first()->name;
+        // dd($us);
+
+        // NB: possible in CLI: php artisan tinker
+
+        $u=new User;
+        $u->name = 'Dupont';
+        $u->email = 'Dupont@chezlui.fr';
+        $u->password = '123';
+        // $u->save();
+
+        // $u->delete();
+        $u=new User;
+        $u->name = 'Durand';
+        $u->email = 'Durand@chezlui.fr';
+        $u->password = '123';
+        // $u->save();
+
+        // User::create(['name' => 'Lionel', 'email' => 'lionel@chezlui.fr', 'password' => 'pass']);
+
+        // (new User)->deleteId(4);
+		return view('pages/test')->with('data', $data);
 	}
 
 	/**
