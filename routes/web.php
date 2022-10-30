@@ -4,12 +4,13 @@
  * (ɔ) Online FORMAPRO - GrCOTE7 - 2022.
  */
 
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FilmController;
+use App\Http\Controllers\TestController;
+use App\Http\Controllers\PhotoController;
+use App\Http\Controllers\UsersController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\ContactController;
-use App\Http\Controllers\PhotoController;
-use App\Http\Controllers\TestController;
-use App\Http\Controllers\UsersController;
-use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
 	return view('pages.welcome');
@@ -40,3 +41,5 @@ Route::get('/test-contact', function () {
 
 Route::get('photo', [PhotoController::class, 'create']);
 Route::post('photo', [PhotoController::class, 'store']);
+
+Route::resource('film', FilmController::class);

@@ -12,14 +12,14 @@ body {
 }
 
 nav {
-    text-decoration: none!important;
+    text-decoration: none !important;
     padding: 3px;
     background-color: yellow;
     border-bottom: 3px solid orange;
 }
 
 nav a {
-    text-decoration: none!important;
+    text-decoration: none !important;
     padding: 3px 5px;
 }
 
@@ -38,4 +38,8 @@ p {
 
 .card-text {
     text-align: justify;
+}
+
+.pagination {
+    margin: 2px auto;
 }
