@@ -6,7 +6,6 @@
 
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\ContactController;
-use App\Http\Controllers\EmailController;
 use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\UsersController;
@@ -19,7 +18,7 @@ Route::get('/', function () {
 Route::get('article/{n}', [ArticleController::class, 'show'])->where('n', '[0-9]+')->name('article');
 
 Route::get('facture/{n}', function ($n) {
-	return view('pages.facture')->withNumero($n);
+	return view('pages.facture')->with('numero', $n);
 })->where('n', '[0-9]+')->name('facture');
 
 Route::get('t', [TestController::class, 'index'])->name('test');
