@@ -1,5 +1,9 @@
 @extends('layouts.bulma')
 
+@section('title')
+    Film
+@endsection
+
 @section('main')
     <div class="card">
         <header class="card-header">

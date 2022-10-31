@@ -1,5 +1,9 @@
 @extends('layouts.bulma')
 
+@section('title')
+    Film
+@endsection
+
 @section('main')
     @if (session()->has('info'))
         <div class="notification is-success">
