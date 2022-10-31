@@ -14,19 +14,16 @@ class FilmController extends Controller
 {
 	public function index($slug = null)
 	{
-		$query      = $slug ? Category::where('slug', $slug)->FirstOrFail()->films() : Film::query();
-		$films      = $query->withTrashed()->oldest('title')->paginate(5);
-		$categories = Category::orderBy('name')->get();
-		$films->nb  = Film::nb();
+		$query     = $slug ? Category::whereSlug($slug)->FirstOrFail()->films() : Film::query();
+		$films     = $query->withTrashed()->oldest('title')->paginate(5);
+		$films->nb = Film::nb();
 
-		return view('pages.film.index', compact('films', 'categories', 'slug'));
+		return view('pages.film.index', compact('films', 'slug'));
 	}
 
 	public function create()
 	{
-		$categories = Category::orderBy('name')->get();
-
-		return view('pages.film.create', compact('categories'));
+		return view('pages.film.create');
 	}
 
 	public function store(FilmRequest $filmRequest)
