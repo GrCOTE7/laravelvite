@@ -6,6 +6,7 @@
 
 @section('main')
     <h1>My Test</h1>
-    <p>{{ $data }}</p>
+    <?= implode('<br>',$data) ?>
+    {{-- <p>{{ $data[0] }}</p> --}}
     <hr>
 @endsection

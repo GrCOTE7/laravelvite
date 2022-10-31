@@ -7,35 +7,28 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\FilmRequest;
+use App\Models\Category;
 use App\Models\Film;
 
 class FilmController extends Controller
 {
-	public function index()
+	public function index($slug = null)
 	{
-		$films     = Film::withTrashed()->oldest('title')->paginate(5);
-		$films->nb = Film::nb();
+		$query      = $slug ? Category::where('slug', $slug)->FirstOrFail()->films() : Film::query();
+		$films      = $query->withTrashed()->oldest('title')->paginate(5);
+		$categories = Category::orderBy('name')->get();
+		$films->nb  = Film::nb();
 
-		return view('pages.film.index', compact('films'));
+		return view('pages.film.index', compact('films', 'categories', 'slug'));
 	}
 
-	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return \Illuminate\Http\Response
-	 */
 	public function create()
 	{
-		return view('pages.film.create');
+		$categories = Category::orderBy('name')->get();
+
+		return view('pages.film.create', compact('categories'));
 	}
 
-	/**
-	 * Store a newly created resource in storage.
-	 *
-	 * @param \Illuminate\Http\Request $request
-	 *
-	 * @return \Illuminate\Http\Response
-	 */
 	public function store(FilmRequest $filmRequest)
 	{
 		Film::create($filmRequest->all());
@@ -45,7 +38,9 @@ class FilmController extends Controller
 
 	public function show(Film $film)
 	{
-		return view('pages.film.show', compact('film'));
+		$category = $film->category->name;
+
+		return view('pages.film.show', compact('film', 'category'));
 	}
 
 	public function edit(Film $film)
@@ -53,14 +48,6 @@ class FilmController extends Controller
 		return view('pages.film.edit', compact('film'));
 	}
 
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param \Illuminate\Http\Request $request
-	 * @param int                      $id
-	 *
-	 * @return \Illuminate\Http\Response
-	 */
 	public function update(FilmRequest $filmRequest, Film $film)
 	{
 		$film->update($filmRequest->all());

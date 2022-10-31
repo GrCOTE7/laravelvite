@@ -52,3 +52,7 @@ p {
 .is-info {
     margin: 0.5em;
 }
+
+select{
+    margin: 0.2em;
+}

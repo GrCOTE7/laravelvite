@@ -15,6 +15,18 @@
     <div class="card">
         <header class="card-header">
             <p class="card-header-title">Films</p>
+
+            <div class="select">
+                <select onchange="window.location.href = this.value">
+                    <option value="{{ route('film.index') }}" @unless($slug) selected @endunless>Toutes
+                        catégories</option>
+                    @foreach ($categories as $category)
+                        <option value="{{ route('film.category', $category->slug) }}"
+                            {{ $slug == $category->slug ? 'selected' : '' }}>{{ $category->name }}</option>
+                    @endforeach
+                </select>
+            </div>
+
             <a class="button is-info" href="{{ route('film.create') }}">Créer un film</a>
         </header>
 
@@ -28,10 +40,19 @@
                             <th colspan="3" style="text-align: center">Action</th>
                         </tr>
                     </thead>
+
                     <tbody>
                         @foreach ($films as $film)
                             <tr @if ($film->deleted_at) class="has-background-grey-lighter" @endif>
-                                <td><strong>{{ $film->title }}</strong></td>
+                                <td><strong>{{ $film->title }}</strong>
+                                    @if (!$slug)
+                                        <br>
+                                        <p class="has-text-right is-size-6 has-text-weight-light">
+                                            <a
+                                                href="/category/{{ $film->category->slug }}/films">{{ $film->category->name }}</a>
+                                        </p>
+                                    @endif
+                                </td>
 
                                 <td>
                                     @if ($film->deleted_at)
@@ -46,14 +67,17 @@
                                 </td>
 
                                 <td>
-                                    @if($film->deleted_at)
+                                    @if ($film->deleted_at)
                                     @else
-                                        <a class="button is-warning" href="{{ route('film.edit', $film->id) }}">Modifier</a>
+                                        <a class="button is-warning"
+                                            href="{{ route('film.edit', $film->id) }}">Modifier</a>
                                     @endif
                                 </td>
 
                                 <td>
-                                    <form action="{{ route($film->deleted_at? 'film.force.destroy' : 'film.destroy', $film->id) }}" method="post">
+                                    <form
+                                        action="{{ route($film->deleted_at ? 'film.force.destroy' : 'film.destroy', $film->id) }}"
+                                        method="post">
                                         @csrf
                                         @method('DELETE')
                                         <button class="button is-danger" type="submit">Supprimer</button>

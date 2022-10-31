@@ -15,12 +15,23 @@
 
                 <form action="{{ route('film.store') }}" class="film-form" method="POST">
                     @csrf
-                    
+
+                    <div class="field">
+                        <label class="label">Catégorie</label>
+                        <div class="select">
+                            <select name="category_id">
+                                @foreach ($categories as $category)
+                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+
                     <div class="field">
                         <label class="label">Titre</label>
                         <div class="control">
                             <input class="input @error('title') is-danger @enderror" type="text" name="title"
-                                value="{{ old('title') }} Abc" placeholder="Titre du film">
+                                value="{{ old('title') }}" placeholder="Titre du film">
                         </div>
                         @error('title')
                             <p class="help is-danger">{{ $message }}</p>
