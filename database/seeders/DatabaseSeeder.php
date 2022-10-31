@@ -6,34 +6,22 @@
 
 namespace Database\Seeders;
 
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\Category;
 use App\Models\Film;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
-	/**
-	 * Seed the application's database.
-	 *
-	 * @return void
-	 */
 	public function run()
 	{
 		\App\Models\User::factory(7)->create();
 
-		// Film::factory(10)->create();
+		Category::factory()->count(5)->create();
 
-		Category::factory()
-			->has(Film::factory()->count(4))
-			->count(5)
-			->create();
-
-		// Category::factory(3)->create();
-
-		// \App\Models\User::factory()->create([
-		// 	'name'  => 'Test User',
-		// 	'email' => 'test@example.com',
-		// ]);
+		$ids = range(1, 5);
+		Film::factory()->count(40)->create()->each(function ($film) use ($ids) {
+			shuffle($ids);
+			$film->categories()->attach(array_slice($ids, 0, rand(1, 3)));
+		});
 	}
 }

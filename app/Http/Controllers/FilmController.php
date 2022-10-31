@@ -35,9 +35,9 @@ class FilmController extends Controller
 
 	public function show(Film $film)
 	{
-		$category = $film->category->name;
-
-		return view('pages.film.show', compact('film', 'category'));
+		// $film::with('categories')->get();
+// dd($film->categories);
+		return view('pages.film.show', compact('film'));
 	}
 
 	public function edit(Film $film)

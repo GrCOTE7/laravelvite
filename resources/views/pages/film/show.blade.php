@@ -12,9 +12,16 @@
         <div class="card-content">
             <div class="content">
                 <p>Année de sortie : {{ $film->year }}</p>
-                <p>Catégorie : {{ $category }}</p>
+
+                <p>Catégorie{{ (count($film->categories)>1) ? 's':''  }} :
+                    @foreach ($film->categories as $k=>$category)
+                    @if($loop->index) - @endif {{ $category->name }}
+                    @endforeach
+                </p>
+                {{-- <p>Catégorie : {{ $category }}</p> --}}
                 <hr>
-                <p>{{ $film->description }}</p>
+                <p>Description :<br>
+                    {{ $film->description }}</p>
             </div>
         </div>
     </div>
