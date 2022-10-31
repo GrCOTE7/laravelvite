@@ -13,13 +13,10 @@
             <div class="content">
                 <p>Année de sortie : {{ $film->year }}</p>
 
-                <p>Catégorie{{ (count($film->categories)>1) ? 's':''  }} :
-                    @foreach ($film->categories as $k=>$category)
-                    @if($loop->index) - @endif {{ $category->name }}
-                    @endforeach
-                </p>
-                {{-- <p>Catégorie : {{ $category }}</p> --}}
+                <p>@include ('partials.categorieslist')</p>
+
                 <hr>
+
                 <p>Description :<br>
                     {{ $film->description }}</p>
             </div>

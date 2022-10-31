@@ -47,10 +47,7 @@
                                 <td><strong>{{ $film->title }}</strong>
                                     @if (!$slug)
                                         <br>
-                                        <p class="has-text-right is-size-6 has-text-weight-light">
-                                            <a
-                                                href="/category/{{ $film->category->slug }}/films">{{ $film->category->name }}</a>
-                                        </p>
+                                        <p class="is-size-6 has-text-weight-light">@include ('partials.categorieslist')</p>
                                     @endif
                                 </td>
 

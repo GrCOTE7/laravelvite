@@ -28,8 +28,8 @@ class FilmController extends Controller
 
 	public function store(FilmRequest $filmRequest)
 	{
-		Film::create($filmRequest->all());
-
+		$film = Film::create($filmRequest->all());
+        $film->categories()->attach($filmRequest->cats);
 		return redirect()->route('film.index')->with('info', 'Le film a bien été crée.');
 	}
 
@@ -48,7 +48,7 @@ class FilmController extends Controller
 	public function update(FilmRequest $filmRequest, Film $film)
 	{
 		$film->update($filmRequest->all());
-
+        $film->categories()->sync($filmRequest->cats);
 		return redirect()->route('film.index')->with('info', 'Le film a bien été mis à jour.');
 	}
 

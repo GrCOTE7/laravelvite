@@ -17,6 +17,19 @@
                     @method('put')
 
                     <div class="field">
+                        <label class="label">Catégories</label>
+                        <div class="select is-multiple">
+                            <select name="cats[]" multiple>
+                                @foreach ($categories as $category)
+                                    <option value="{{ $category->id }}"
+                                        {{ in_array($category->id, old('cats') ?: $film->categories->pluck('id')->all()) ? 'selected' : '' }}>
+                                        {{ $category->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="field">
                         <label class="label">Titre</label>
                         <div class="control">
                             <input class="input @error('title') is-danger @enderror" type="text" name="title"
@@ -50,7 +63,7 @@
 
                     <div class="field is-grouped is-grouped-right">
                         <div class="control">
-                            <button class="button is-link">Submit</button>
+                            <button class="button is-link">Envoyer</button>
                         </div>
                         <div class="control">
                             <button class="button is-link is-light">Cancel</button>
