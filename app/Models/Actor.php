@@ -6,16 +6,15 @@
 
 namespace App\Models;
 
-use App\Models\Film;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
-class Category extends Model
+class Actor extends Model
 {
 	use HasFactory;
 
 	public function films()
 	{
-		return $this->morphToToMany(Film::class, 'filmable');
+		return $this->morphToMany(Film::class, 'filmable');
 	}
 }

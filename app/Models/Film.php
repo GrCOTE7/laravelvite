@@ -19,8 +19,13 @@ class Film extends Model
 
 	public function categories()
 	{
-		return $this->belongsToMany(Category::class)->orderBy('name');
+		return $this->morphedByMany(Category::class, 'filmable');
 	}
+
+public function actors()
+{
+	return $this->morphedByMany(Actor::class, 'filmable');
+}
 
 	public static function nb()
 	{
