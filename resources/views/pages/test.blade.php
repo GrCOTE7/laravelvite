@@ -1,7 +1,7 @@
 @extends ('layouts.layout')
 
 @section('title')
-    Article
+    Test
 @endsection
 
 @section('main')
