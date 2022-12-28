@@ -22,13 +22,18 @@ class Film extends Model
 		return $this->morphedByMany(Category::class, 'filmable');
 	}
 
-public function actors()
-{
-	return $this->morphedByMany(Actor::class, 'filmable');
-}
+	public function actors()
+	{
+		return $this->morphedByMany(Actor::class, 'filmable');
+	}
 
 	public static function nb()
 	{
 		return Film::count();
+	}
+
+    public static function nbSelect()
+	{
+		return $GLOBALS;
 	}
 }

@@ -6,7 +6,7 @@
 
 namespace App\Providers;
 
-use App\Models\Category;
+use App\Models\{Actor, Category};
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -23,6 +23,7 @@ class AppServiceProvider extends ServiceProvider
 	public function boot()
 	{
 		View::composer(['pages.film.index', 'pages.film.create', 'pages.film.edit'], function ($view) {
+			$view->with('actors', Actor::orderBy('name')->get());
 			$view->with('categories', Category::orderBy('name')->get());
 		});
 	}

@@ -7,16 +7,26 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\FilmRequest;
-use App\Models\Category;
-use App\Models\Film;
+use App\Models\{Actor, Category,Film};
+use Illuminate\Support\Facades\Route;
+use App\Tools\Gc7;
 
 class FilmController extends Controller
 {
 	public function index($slug = null)
 	{
-		$query     = $slug ? Category::whereSlug($slug)->FirstOrFail()->films() : Film::query();
+		if ($slug) {
+            // Gc7::aff(Route::currentRouteName());
+			if ('film.category' == Route::currentRouteName()) {
+				$model = new Category();
+			} else {
+				$model = new Actor();
+			}
+		}
+		$query     = ($model ?? null) ? $model->whereSlug($slug)->FirstOrFail()->films() : Film::query();
 		$films     = $query->withTrashed()->oldest('title')->paginate(5);
-		$films->nb = Film::nb();
+		$films->nb =Film::nb();
+		$films->nbSelected =$films->total();
 
 		return view('pages.film.index', compact('films', 'slug'));
 	}
@@ -29,14 +39,15 @@ class FilmController extends Controller
 	public function store(FilmRequest $filmRequest)
 	{
 		$film = Film::create($filmRequest->all());
-        $film->categories()->attach($filmRequest->cats);
+		$film->categories()->attach($filmRequest->cats);
+
 		return redirect()->route('film.index')->with('info', 'Le film a bien été crée.');
 	}
 
 	public function show(Film $film)
 	{
 		// $film::with('categories')->get();
-// dd($film->categories);
+		// dd($film->categories);
 		return view('pages.film.show', compact('film'));
 	}
 
@@ -48,7 +59,8 @@ class FilmController extends Controller
 	public function update(FilmRequest $filmRequest, Film $film)
 	{
 		$film->update($filmRequest->all());
-        $film->categories()->sync($filmRequest->cats);
+		$film->categories()->sync($filmRequest->cats);
+
 		return redirect()->route('film.index')->with('info', 'Le film a bien été mis à jour.');
 	}
 

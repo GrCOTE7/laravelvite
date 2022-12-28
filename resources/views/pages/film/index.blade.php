@@ -18,7 +18,19 @@
 
             <div class="select">
                 <select onchange="window.location.href = this.value">
-                    <option value="{{ route('film.index') }}" @unless($slug) selected @endunless>Toutes
+                    <option value="{{ route('film.index') }}" @unless($slug) selected @endunless>Tous
+                        acteurs</option>
+                    @foreach ($actors as $actor)
+                        <option value="{{ route('film.actor', $actor->slug) }}"
+                            {{ $slug == $actor->slug ? 'selected' : '' }}>{{ $actor->name }}</option>
+                    @endforeach
+                </select>
+            </div>
+
+            <div class="select">
+                <select onchange="window.location.href = this.value">
+                    <option value="{{ route('film.index') }}" @unless($slug) selected @endunless>
+                        Toutes
                         catégories</option>
                     @foreach ($categories as $category)
                         <option value="{{ route('film.category', $category->slug) }}"
@@ -27,13 +39,14 @@
                 </select>
             </div>
 
-            <a class="button is-info" href="{{ route('film.create') }}">Créer un film</a>
+            <a class="button is-info" href="{{ route('film.create') }}" title="Créer un film">+</a>
         </header>
 
         <div class="card-content">
             <div class="content">
                 <table class="table is-hoverable">
-                    <caption>Liste de films ({{ $films->nb }})</caption>
+
+                    <caption>Liste des films (@if ($films->nbSelected < $films->nb){{ $films->nbSelected }} / @endif{{ $films->nb }})</caption>
                     <thead>
                         <tr>
                             <th>Titre</th>
