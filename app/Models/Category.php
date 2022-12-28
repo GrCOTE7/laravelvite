@@ -13,6 +13,8 @@ class Category extends Model
 {
 	use HasFactory;
 
+    protected $visible = ['name'];
+
 	public function films()
 	{
 		return $this->morphToMany(Film::class, 'filmable');

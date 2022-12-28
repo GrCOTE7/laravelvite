@@ -5,6 +5,8 @@ use Illuminate\Http\Request;
 
 define('LARAVEL_START', microtime(true));
 
+
+//@see https://laravel.com/docs/9.x/passport
 /*
 |--------------------------------------------------------------------------
 | Check If The Application Is Under Maintenance

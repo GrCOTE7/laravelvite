@@ -16,6 +16,8 @@ class Film extends Model
 	use SoftDeletes;
 
 	protected $fillable = ['title', 'year', 'description'];
+    protected $hidden = ['id', 'created_at', 'update_at', 'deleted_at'];
+    // protected $visible = ['name'];
 
 	public function categories()
 	{

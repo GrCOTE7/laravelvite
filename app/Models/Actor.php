@@ -12,6 +12,8 @@ use Illuminate\Database\Eloquent\Model;
 class Actor extends Model
 {
 	use HasFactory;
+    
+    protected $visible = ['name'];
 
 	public function films()
 	{
