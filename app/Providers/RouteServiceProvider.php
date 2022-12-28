@@ -42,7 +42,7 @@ class RouteServiceProvider extends ServiceProvider
 				->group(base_path('routes/web.php'));
 
 			Route::bind('film', function ($value) {
-				return Film::with('categories')->find($value) ?? abort(404);
+				return Film::with('actors', 'categories')->find($value) ?? abort(404);
 			});
 		});
 	}

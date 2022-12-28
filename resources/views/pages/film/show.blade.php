@@ -13,6 +13,8 @@
             <div class="content">
                 <p>Année de sortie : {{ $film->year }}</p>
 
+                <p>@include ('partials.actorslist')</p>
+
                 <p>@include ('partials.categorieslist')</p>
 
                 <hr>
