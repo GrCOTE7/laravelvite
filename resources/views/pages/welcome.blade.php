@@ -449,7 +449,7 @@
                                 </path>
                             </svg>
                             <div class="ml-4 text-lg leading-7 font-semibold"><a href="https://laravel.com/docs"
-                                    class="underline text-gray-900 dark:text-white">Documentation <?= 1 + 2 ?></a></div>
+                                    class="underline text-gray-900 dark:text-white">Documentation Laravel <?= 5 + 4 ?></a></div>
                         </div>
 
                         <div class="ml-12">

@@ -19,14 +19,14 @@ class TestController extends Controller
 	public function index()
 	{
 		$arr = ['a', 'b', 'c'];
-        
+
         $nb = count($arr);
         for ($i=0; $i<$nb; $i++){
             shuffle($arr);
             $v = array_shift($arr);
             $data[] = $v . ' → ' . implode(',', $arr);
         }
-        
+
 		// $data = 'lionel';
 
 		return view('pages/test')->with('data', $data ?? '');
