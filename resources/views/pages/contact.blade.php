@@ -7,6 +7,10 @@
 @section('main')
     <h1>Contact</h1>
     <div class="container">
+        <p class="justify">
+            N.B.: Penser à starter les MailHog<br>
+            (Ou autre selon les settings dans le .env)
+        </p>
         <div class="row card text-white bg-dark">
             <h4 class="card-header">Contactez-moi</h4>
             <div class="card-body">

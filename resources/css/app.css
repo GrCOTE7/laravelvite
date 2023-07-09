@@ -1,4 +1,6 @@
-*, ::after, ::before {
+*,
+::after,
+::before {
     margin: 0;
     padding: 0;
     text-decoration: none;
@@ -37,6 +39,12 @@ p {
     font-size: 1.2em;
 }
 
+p.justify {
+    margin-left: -10px;
+    margin-right: -10px;
+    text-align: justify;
+}
+
 .card-text {
     text-align: justify;
 }
@@ -53,6 +61,6 @@ p {
     margin: 0.5em;
 }
 
-select{
+select {
     margin: 0.2em;
 }

@@ -22,13 +22,13 @@ class TestController extends Controller
 
 	private function arrayShift()
 	{
-		$arr = ['a', 'b', 'c'];
+		$arr = range('a', 'e');
 
 		$nb = count($arr);
 		for ($i = 0; $i < $nb; ++$i) {
 			shuffle($arr);
 			$v      = array_shift($arr);
-			$data[] = $v . ' → ' . implode(',', $arr);
+			$data[] = $v . ($arr ? (' → ' . implode(',', $arr)) : '');
 		}
 
 		return $data;
