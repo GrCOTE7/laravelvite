@@ -14,19 +14,24 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
 	return view('pages.welcome');
-})->name('welcome');
+})
+	->name('welcome');
 
-Route::get('article/{n}', [ArticleController::class, 'show'])->where('n', '[0-9]+')->name('article');
+Route::get('article/{n}', [ArticleController::class, 'show'])
+	->where('n', '[0-9]+')
+	->name('article');
 
 Route::get('facture/{n}', function ($n) {
-	return view('pages.facture')->with('numero', $n);
-})->where('n', '[0-9]+')->name('facture');
+	return view('pages.facture')
+		->with('numero', $n);
+})
+	->where('n', '[0-9]+')
+	->name('facture');
 
 Route::get('t', [TestController::class, 'index'])
 	->name('test');
 
-Route::get('users', [UsersController::class, 'create'])->name('users.create');
-Route::post('users', [UsersController::class, 'store'])->name('users.store');
+Route::resource('users', UsersController::class);
 
 Route::get('contact', [ContactController::class, 'create'])->name('contact.create');
 Route::post('contact', [ContactController::class, 'store'])->name('contact.store');

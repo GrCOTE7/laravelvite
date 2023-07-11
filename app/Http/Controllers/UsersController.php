@@ -1,7 +1,7 @@
 <?php
 
 /**
- * (ɔ) Online FORMAPRO - GrCOTE7 - 2022.
+ * (ɔ) GrCOTE7 - 2001-2023.
  */
 
 namespace App\Http\Controllers;
@@ -17,6 +17,7 @@ class UsersController extends Controller
 	 */
 	public function index()
 	{
+		return $this->create();
 	}
 
 	/**
