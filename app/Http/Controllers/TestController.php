@@ -35,7 +35,7 @@ class TestController extends Controller
 		// echo gettype($fs);
 		$arr = $fs->toArray();
 		// echo gettype($arr);
-		// Gc7::aff($arr);
+		// Gc7::aff($arr[2]);
 
         foreach($fs as $f){
             $cats = $f->categories->toArray();

@@ -42,7 +42,8 @@ class FilmController extends Controller
 		$film->actors()->attach($filmRequest->acts);
 		$film->categories()->attach($filmRequest->cats);
 
-		return redirect()->route('film.index')->with('info', 'Le film a bien été crée.');
+		return redirect()->route('film.index')
+        ->with('info', 'Le film a bien été crée.');
 	}
 
 	public function show(Film $film)
