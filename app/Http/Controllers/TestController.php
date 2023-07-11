@@ -20,13 +20,13 @@ class TestController extends Controller
 	 */
 	public function index()
 	{
-		$data = $this->getFilmsAndCats();
+		$data = $this->getFilmsAndOrderedCats();
 
 		return view('pages/test')
 			->with('data', $data ?? []);
 	}
 
-	private function getFilmsAndCats()
+	private function getFilmsAndOrderedCats()
 	{
 		$fs = Film::with('categories:name')
         ->orderBy('categories:name')
