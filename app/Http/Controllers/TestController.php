@@ -19,12 +19,12 @@ class TestController extends Controller
 	 */
 	public function index()
 	{
-		$data = $this->getPostsAndCats();
+		$data = $this->getArr();
 
 		return view('pages/test')->with('data', $data ?? []);
 	}
 
-	private function getPostsAndCats():array
+	private function getArr():array
 	{
         $arr = [
             'a' => 1,
