@@ -1,7 +1,7 @@
 <?php
 
 /**
- * (ɔ) Online FORMAPRO - GrCOTE7 - 2022.
+ * (ɔ) GrCOTE7 - 2001-2023.
  */
 
 use App\Http\Controllers\ArticleController;
@@ -23,7 +23,7 @@ Route::get('facture/{n}', function ($n) {
 })->where('n', '[0-9]+')->name('facture');
 
 Route::get('t', [TestController::class, 'index'])
-->name('test');
+	->name('test');
 
 Route::get('users', [UsersController::class, 'create'])->name('users.create');
 Route::post('users', [UsersController::class, 'store'])->name('users.store');
@@ -31,8 +31,7 @@ Route::post('users', [UsersController::class, 'store'])->name('users.store');
 Route::get('contact', [ContactController::class, 'create'])->name('contact.create');
 Route::post('contact', [ContactController::class, 'store'])->name('contact.store');
 
-
-// https://mailtrap.io
+// https://mailtrap.io o r http://localhost:8025 (MailHog)
 Route::get('/test-contact', function () {
 	return new App\Mail\Contact([
 		'nom'     => 'Durand',
