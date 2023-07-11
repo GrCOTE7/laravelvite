@@ -6,6 +6,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Film;
 use App\Tools\Gc7;
 
 class TestController extends Controller
@@ -19,20 +20,29 @@ class TestController extends Controller
 	 */
 	public function index()
 	{
-		$data = $this->getArr();
+		$data = $this->getFilmsAndCats();
 
-		return view('pages/test')->with('data', $data ?? []);
+		return view('pages/test')
+			->with('data', $data ?? []);
 	}
 
-	private function getArr():array
+	private function getFilmsAndCats()
 	{
-        $arr = [
-            'a' => 1,
-			'b' => 2,
-			'c' => 3,
-		];
-        Gc7::aff($arr);
-        return $arr;
+		$fs = Film::with('categories:name')
+        ->orderBy('categories:name')
+        // ->orderBy('title')
+        ->get();
+		// echo gettype($fs);
+		$arr = $fs->toArray();
+		// echo gettype($arr);
+		// Gc7::aff($arr);
+
+        foreach($fs as $f){
+            $cats = $f->categories->toArray();
+            sort($cats);
+            $f->categories = collect($cats);
+        }
+		return $fs;
 	}
 
 	private function arrayShiftExample()

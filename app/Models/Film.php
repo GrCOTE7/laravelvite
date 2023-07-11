@@ -21,7 +21,9 @@ class Film extends Model
 
 	public function categories()
 	{
-		return $this->morphedByMany(Category::class, 'filmable');
+		return $this
+        ->morphedByMany(Category::class, 'filmable')
+         ->orderByPivot('filmable_id');
 	}
 
 	public function actors()
