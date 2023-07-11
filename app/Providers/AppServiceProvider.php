@@ -22,7 +22,7 @@ class AppServiceProvider extends ServiceProvider
 
 	public function boot()
 	{
-		View::composer(['pages.film.index', 'pages.film.create', 'pages.film.edit'], function ($view) {
+		View::composer(['pages.film.index', 'pages.film.create', 'pages.film.edit', 'pages.film.show'], function ($view) {
 			$view->with('actors', Actor::orderBy('name')->get());
 			$view->with('categories', Category::orderBy('name')->get());
 		});

@@ -22,13 +22,15 @@ Route::get('facture/{n}', function ($n) {
 	return view('pages.facture')->with('numero', $n);
 })->where('n', '[0-9]+')->name('facture');
 
-Route::get('t', [TestController::class, 'index'])->name('test');
+Route::get('t', [TestController::class, 'index'])
+->name('test');
 
 Route::get('users', [UsersController::class, 'create'])->name('users.create');
 Route::post('users', [UsersController::class, 'store'])->name('users.store');
 
 Route::get('contact', [ContactController::class, 'create'])->name('contact.create');
 Route::post('contact', [ContactController::class, 'store'])->name('contact.store');
+
 
 // https://mailtrap.io
 Route::get('/test-contact', function () {

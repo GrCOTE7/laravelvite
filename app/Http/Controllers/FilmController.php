@@ -8,25 +8,25 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\FilmRequest;
 use App\Models\{Actor, Category,Film};
-use Illuminate\Support\Facades\Route;
 use App\Tools\Gc7;
+use Illuminate\Support\Facades\Route;
 
 class FilmController extends Controller
 {
 	public function index($slug = null)
 	{
 		if ($slug) {
-            // Gc7::aff(Route::currentRouteName());
+			// Gc7::aff(Route::currentRouteName());
 			if ('film.category' == Route::currentRouteName()) {
 				$model = new Category();
 			} else {
 				$model = new Actor();
 			}
 		}
-		$query     = ($model ?? null) ? $model->whereSlug($slug)->FirstOrFail()->films() : Film::query();
-		$films     = $query->withTrashed()->oldest('title')->paginate(5);
-		$films->nb =Film::nb();
-		$films->nbSelected =$films->total();
+		$query             = ($model ?? null) ? $model->whereSlug($slug)->FirstOrFail()->films() : Film::query();
+		$films             = $query->withTrashed()->oldest('title')->paginate(5);
+		$films->nb         = Film::nb();
+		$films->nbSelected = $films->total();
 
 		return view('pages.film.index', compact('films', 'slug'));
 	}
@@ -48,6 +48,11 @@ class FilmController extends Controller
 	public function show(Film $film)
 	{
 		// $film::with('categories')->get();
+
+		// $film::with(['categories' => function ($query) {
+		// 	$query->orderBy('name');
+		// }])->find($film);
+
 		// dd($film->categories);
 		return view('pages.film.show', compact('film'));
 	}

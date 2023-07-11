@@ -8,5 +8,7 @@
     <a href="/film" class="@if (request()->routeIs('film*')) active @endif">Film</a> |
     <a href="/photo" class="@if (Request::is('photo')) active @endif">Photo</a> |
     <a href="/contact" class="@if (Request::is('contact')) active @endif">Contact</a> |
-    <a href="/api/films" class="@if (Request::is('api/films')) active @endif">Api</a><a href="/api/films/7" class="@if (Request::is('api/films/7')) active @endif">7</a>
+    <a href="/api/films" class="@if (Request::is('api/films')) active @endif">Api</a><a href="/api/films/7" class="@if (Request::is('api/films/7')) active @endif">7</a> |
+
+    <a href="/t" class="@if (Request::is('t')) active @endif">Test</a>
 </nav>

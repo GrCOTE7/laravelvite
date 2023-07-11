@@ -6,21 +6,36 @@
 
 namespace App\Http\Controllers;
 
+use App\Tools\Gc7;
+
 class TestController extends Controller
 {
 	/**
 	 * Display a listing of the resource.
 	 *
 	 * @return \Illuminate\Http\Response
+	 *
+	 * $data = $this->arrayShiftExample();
 	 */
 	public function index()
 	{
-		$data = $this->arrayShift();
+		$data = $this->getPostsAndCats();
 
 		return view('pages/test')->with('data', $data ?? []);
 	}
 
-	private function arrayShift()
+	private function getPostsAndCats():array
+	{
+        $arr = [
+            'a' => 1,
+			'b' => 2,
+			'c' => 3,
+		];
+        Gc7::aff($arr);
+        return $arr;
+	}
+
+	private function arrayShiftExample()
 	{
 		$arr = range('a', 'e');
 

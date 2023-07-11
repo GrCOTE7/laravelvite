@@ -23,7 +23,7 @@ return new class () extends Migration {
 				->onDelete('cascade')
 				->onUpdate('cascade');
 			$table->morphs('filmable');
-			$table->timestamps();
+			// $table->timestamps();
 		});
 	}
 

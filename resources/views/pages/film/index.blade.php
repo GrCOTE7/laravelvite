@@ -57,7 +57,7 @@
                     <tbody>
                         @foreach ($films as $film)
                             <tr @if ($film->deleted_at) class="has-background-grey-lighter" @endif>
-                                <td><strong>{{ $film->title }}</strong>
+                                <td><strong>{{ $film->title }}aaa</strong>
                                     @if (!$slug)
                                         <br>
                                         <p class="is-size-6 has-text-weight-light">@include ('partials.categorieslist')</p>

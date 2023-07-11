@@ -19,8 +19,9 @@
 
                 <hr>
 
-                <p>Description :<br>
+                <p class="justify">Description :<br>
                     {{ $film->description }}</p>
+                </p>
             </div>
         </div>
     </div>
