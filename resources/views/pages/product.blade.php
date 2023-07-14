@@ -1,10 +1,10 @@
 @extends('layouts.layout')
 
 @section('title')
-    Article
+    Product
 @endsection
 
 @section('main')
-    <h1>Article</h1>
-    <p># {{ $numero }}</p>
+    <h1>Product</h1>
+    <p># {{ $number }}</p>
 @endsection

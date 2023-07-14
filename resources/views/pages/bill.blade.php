@@ -1,10 +1,10 @@
 @extends('layouts.layout')
 
 @section('title')
-    Facture
+    Bill
 @endsection
 
 @section('main')
-    <h1>Facture</h1>
-    <p># {{ $numero }}</p>
+    <h1>Bill</h1>
+    <p># {{ $number }}</p>
 @endsection
