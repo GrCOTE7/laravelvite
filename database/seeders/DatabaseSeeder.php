@@ -16,6 +16,8 @@ class DatabaseSeeder extends Seeder
 {
 	public function run()
 	{
+        \App\Models\User::factory(7)->create();
+        
 		Actor::factory()->count(10)->create();
 		$categories = [
 			'Comédie',

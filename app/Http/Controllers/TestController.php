@@ -1,12 +1,13 @@
 <?php
 
 /**
- * (ɔ) Online FORMAPRO - GrCOTE7 - 2022.
+ * (ɔ) GrCOTE7 - 2001-2023.
  */
 
 namespace App\Http\Controllers;
 
 use App\Models\Film;
+use App\Models\User;
 use App\Tools\Gc7;
 
 class TestController extends Controller
@@ -20,28 +21,32 @@ class TestController extends Controller
 	 */
 	public function index()
 	{
-		$data = $this->getFilmsAndOrderedCats();
+		$data = User::all();
+
+		// Gc7::aff($data);
 
 		return view('pages/test')
 			->with('data', $data ?? []);
+		// $data = $this->getFilmsAndOrderedCats();
 	}
 
 	private function getFilmsAndOrderedCats()
 	{
 		$fs = Film::with('categories:name')
-        ->orderBy('categories:name')
-        // ->orderBy('title')
-        ->get();
+			->orderBy('categories:name')
+		// ->orderBy('title')
+			->get();
 		// echo gettype($fs);
 		$arr = $fs->toArray();
 		// echo gettype($arr);
 		// Gc7::aff($arr[2]);
 
-        foreach($fs as $f){
-            $cats = $f->categories->toArray();
-            sort($cats);
-            $f->categories = collect($cats);
-        }
+		foreach ($fs as $f) {
+			$cats = $f->categories->toArray();
+			sort($cats);
+			$f->categories = collect($cats);
+		}
+
 		return $fs;
 	}
 
