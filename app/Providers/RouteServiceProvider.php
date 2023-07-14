@@ -1,7 +1,7 @@
 <?php
 
 /**
- * (ɔ) Online FORMAPRO - GrCOTE7 - 2022.
+ * (ɔ) GrCOTE7 - 2001-2023.
  */
 
 namespace App\Providers;
@@ -43,7 +43,7 @@ class RouteServiceProvider extends ServiceProvider
 
 			Route::bind('film', function ($value) {
 				return Film::with('actors', 'categories')
-                ->find($value) ?? abort(404);
+					->find($value) ?? abort(404);
 			});
 		});
 	}

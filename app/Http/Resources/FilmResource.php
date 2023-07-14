@@ -1,7 +1,7 @@
 <?php
 
 /**
- * (ɔ) Online FORMAPRO - GrCOTE7 - 2022.
+ * (ɔ) GrCOTE7 - 2001-2023.
  */
 
 namespace App\Http\Resources;
@@ -14,19 +14,22 @@ class FilmResource extends JsonResource
 	/**
 	 * Transform the resource into an array.
 	 *
-	 * @param \Illuminate\Http\Request $request
-	 *
 	 * @return array|\Illuminate\Contracts\Support\Arrayable|\JsonSerializable
 	 */
 	public function toArray($request)
 	{
 		// return parent::toArray($request);
+
+		$orderedCategories = $this->categories->toArray();
+        sort($orderedCategories);
+
 		return [
 			'title'       => $this->title,
 			'year'        => $this->year,
 			'description' => Str::words($this->description, 5),
-			'actors'      => $this->actors,
-			'categories'  => $this->categories,
+			// 'updated_at'  => $this->updated_at,
+			'actors'     => $this->actors,
+			'categories' => collect($orderedCategories),
 		];
 	}
 }

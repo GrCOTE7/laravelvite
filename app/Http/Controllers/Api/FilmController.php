@@ -1,7 +1,7 @@
 <?php
 
 /**
- * (ɔ) Online FORMAPRO - GrCOTE7 - 2022.
+ * (ɔ) GrCOTE7 - 2001-2023.
  */
 
 namespace App\Http\Controllers\Api;
@@ -36,8 +36,6 @@ class FilmController extends Controller
 	/**
 	 * Display the specified resource.
 	 *
-	 * @param int $id
-	 *
 	 * @return \Illuminate\Http\Response
 	 */
 	public function show(Film $film)
@@ -48,8 +46,6 @@ class FilmController extends Controller
 	/**
 	 * Update the specified resource in storage.
 	 *
-	 * @param int $id
-	 *
 	 * @return \Illuminate\Http\Response
 	 */
 	public function update(Request $request, Film $film)
@@ -59,8 +55,6 @@ class FilmController extends Controller
 
 	/**
 	 * Remove the specified resource from storage.
-	 *
-	 * @param int $id
 	 *
 	 * @return \Illuminate\Http\Response
 	 */
