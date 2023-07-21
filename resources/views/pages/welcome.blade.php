@@ -449,7 +449,8 @@
                                 </path>
                             </svg>
                             <div class="ml-4 text-lg leading-7 font-semibold"><a href="https://laravel.com/docs"
-                                    class="underline text-gray-900 dark:text-white">Documentation Laravel <?= 5 + 4 ?></a></div>
+                                    class="underline text-gray-900 dark:text-white"
+                                    target="_blank">Documentation Laravel</a></div>
                         </div>
 
                         <div class="ml-12">
@@ -473,7 +474,8 @@
                                 <path d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path>
                             </svg>
                             <div class="ml-4 text-lg leading-7 font-semibold"><a href="https://laracasts.com"
-                                    class="underline text-gray-900 dark:text-white">Laracasts</a></div>
+                                    class="underline text-gray-900 dark:text-white"
+                                    target="_blank">Laracasts</a></div>
                         </div>
 
                         <div class="ml-12">
@@ -494,7 +496,8 @@
                                 </path>
                             </svg>
                             <div class="ml-4 text-lg leading-7 font-semibold"><a href="https://laravel-news.com/"
-                                    class="underline text-gray-900 dark:text-white">Laravel News</a></div>
+                                    class="underline text-gray-900 dark:text-white"
+                                    target="_blank">Laravel News</a></div>
                         </div>
 
                         <div class="ml-12">
