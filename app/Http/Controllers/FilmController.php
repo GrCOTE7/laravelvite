@@ -1,7 +1,7 @@
 <?php
 
 /**
- * (ɔ) Online FORMAPRO - GrCOTE7 - 2022.
+ * (ɔ) GrCOTE7 - 2001-2023.
  */
 
 namespace App\Http\Controllers;
@@ -43,7 +43,7 @@ class FilmController extends Controller
 		$film->categories()->attach($filmRequest->cats);
 
 		return redirect()->route('film.index')
-        ->with('info', 'Le film a bien été crée.');
+			->with('info', 'Le film a bien été créé.');
 	}
 
 	public function show(Film $film)
@@ -69,7 +69,8 @@ class FilmController extends Controller
 		$film->actors()->sync($filmRequest->acts);
 		$film->categories()->sync($filmRequest->cats);
 
-		return redirect()->route('film.index')->with('info', 'Le film a bien été mis à jour.');
+		return redirect()->route('film.index')
+			->with('info', 'Le film a bien été mis à jour.');
 	}
 
 	public function destroy(Film $film)
