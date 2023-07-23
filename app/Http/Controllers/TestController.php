@@ -9,6 +9,7 @@ namespace App\Http\Controllers;
 use App\Models\Film;
 use App\Models\User;
 use App\Tools\Gc7;
+use Illuminate\Support\Facades\DB;
 
 class TestController extends Controller
 {
@@ -21,6 +22,14 @@ class TestController extends Controller
 	 */
 	public function index()
 	{
+		$sql = 'show tables;';
+
+		$tables = DB::getDoctrineSchemaManager()->listTableNames();
+
+		foreach ($tables as $table) {
+			echo $table . "\n<br>";
+		}
+
 		$data = User::all();
 
 		// Gc7::aff($data);
