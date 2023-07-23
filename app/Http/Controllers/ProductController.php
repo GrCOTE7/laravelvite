@@ -8,8 +8,14 @@ namespace App\Http\Controllers;
 
 class ProductController extends Controller
 {
-	public function show($n)
+	public function show($number)
 	{
-		return view('pages.product')->with('number', $n);
+		$route = route('product', ['n' => 789]);
+
+		return view(
+			'pages.product',
+			compact('number')
+		)
+			->with('route', $route);
 	}
 }
