@@ -19,14 +19,14 @@ Route::get('/', function () {
 	->name('welcome');
 
 Route::get('product/{n}', [ProductController::class, 'show'])
-	->where('n', '[0-9]+')
+	->where('n', '[0-9]{1,2}+')
 	->name('product');
 
 Route::get('bill/{n}', function ($n) {
 	return view('pages.bill')
 		->with('number', $n);
 })
-	->where('n', '[0-9]+')
+	->where('n', '[0-9]')
 	->name('facture');
 // ->middleware('auth');
 
