@@ -63,9 +63,14 @@ Route::get('photo', [PhotoController::class, 'create']);
 Route::post('photo', [PhotoController::class, 'store']);
 
 Route::resource('film', FilmController::class);
-Route::controller(FilmController::class)->group(function () {
-	Route::delete('film/force/{id}', 'forceDestroy')->name('film.force.destroy');
-	Route::put('film/restore/{id}', 'restore')->name('film.restore');
-	Route::get('actor/{slug}/films', 'index')->name('film.actor');
-	Route::get('category/{slug}/films', 'index')->name('film.category');
-});
+Route::controller(FilmController::class)
+	->group(function () {
+		Route::delete('film/force/{id}', 'forceDestroy')
+			->name('film.force.destroy');
+		Route::put('film/restore/{id}', 'restore')
+			->name('film.restore');
+		Route::get('actor/{slug}/films', 'index')
+			->name('film.actor');
+		Route::get('category/{slug}/films', 'index')
+			->name('film.category');
+	});
