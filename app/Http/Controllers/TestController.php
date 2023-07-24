@@ -27,14 +27,14 @@ class TestController extends Controller
 		$tables = DB::getDoctrineSchemaManager()->listTableNames();
 
 		foreach ($tables as $table) {
-			echo $table . "\n<br>";
+			$tables[] = $table;
 		}
 
 		$data = User::all();
 
 		// Gc7::aff($data);
 
-		return view('pages/test')
+		return view('pages/test', compact('tables'))
 			->with('data', $data ?? []);
 		// $data = $this->getFilmsAndOrderedCats();
 	}
