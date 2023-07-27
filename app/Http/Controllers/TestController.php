@@ -32,8 +32,6 @@ class TestController extends Controller
 
 		$data = User::all();
 
-        $data->
-
 		// Gc7::aff($data);
 
 		return view(
