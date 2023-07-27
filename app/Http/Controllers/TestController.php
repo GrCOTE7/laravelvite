@@ -32,10 +32,15 @@ class TestController extends Controller
 
 		$data = User::all();
 
+        $data->
+
 		// Gc7::aff($data);
 
-		return view('pages/test', compact('tables'))
-			->with('data', $data ?? []);
+		return view(
+			'pages/test',
+			compact('tables', 'data')
+		);
+		// ->with('data', $data ?? []);
 		// $data = $this->getFilmsAndOrderedCats();
 	}
 
@@ -46,6 +51,7 @@ class TestController extends Controller
 		// ->orderBy('title')
 			->get();
 		// echo gettype($fs);
+
 		$arr = $fs->toArray();
 		// echo gettype($arr);
 		// Gc7::aff($arr[2]);
