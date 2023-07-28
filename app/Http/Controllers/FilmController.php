@@ -48,8 +48,6 @@ class FilmController extends Controller
 
 	public function show(Film $film)
 	{
-
-        $film->
 		// $film::with('categories')->get();
 
 		// $film::with(['categories' => function ($query) {
