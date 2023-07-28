@@ -11,7 +11,7 @@ composer update
 2. Install dependences
 npm i
 
-3. php artisan serve
+3. php artisan serv
 
 NB/ 1 & 2 ds 2 consoles distinctes
 
