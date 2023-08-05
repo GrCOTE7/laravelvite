@@ -18,16 +18,24 @@
         {{  $table }}<br>
     @endforeach --}}
     <hr>
-    @foreach ($data as $item)
-        {{ $item->id }} - {{ $item->name }}<br>
-        {{ $item->email }}
-        {{-- {{  $arr = $item->categories }} --}}
-        {{-- @foreach ($item->categories as $k => $cat)
-            @if ($k)
-                -
-            @endif
-            {{ $cat['name'] }}
-        @endforeach --}}
-        <hr>
-    @endforeach
+
+    @php
+        // Gc7::aff($data);
+        echo count($data) . ' users :<hr>';
+    @endphp
+
+    <table>
+        @foreach ($data as $item)
+            <tr>
+
+                <td>{{ $item->id }}</td>
+                <td>{{ $item->name }}</td>
+                <td>{{ $item->email }}</td>
+            </tr>
+        @endforeach
+    </table>
+
+    <hr>
+
+    <p>Oki</p>
 @endsection
