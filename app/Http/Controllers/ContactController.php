@@ -1,13 +1,14 @@
 <?php
 
 /**
- * (ɔ) Online FORMAPRO - GrCOTE7 - 2022.
+ * (ɔ) GrCOTE7 - 2001-2023.
  */
 
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ContactRequest;
 use App\Mail\Contact;
+use App\Tools\Gc7;
 use Illuminate\Support\Facades\Mail;
 
 class ContactController extends Controller
@@ -29,14 +30,13 @@ class ContactController extends Controller
 	 */
 	public function store(ContactRequest $request)
 	{
-
-        // Nécessite $fillable dans Controller
+		// Nécessite $fillable dans Controller
 		// \App\Models\Contact::create([
-            // 	'nom'     => $request->nom,
-            // 	'email'   => $request->email,
-            // 	'message' => $request->message,
-        // ]);
-        // dd(\App\Models\Contact::create ($request->all ()));
+		// 	'nom'     => $request->nom,
+		// 	'email'   => $request->email,
+		// 	'message' => $request->message,
+		// ]);
+		// dd(\App\Models\Contact::create ($request->all ()));
 
 		$contact          = new \App\Models\Contact();
 		$contact->nom     = $request->nom;
@@ -46,7 +46,8 @@ class ContactController extends Controller
 
 		Mail::to('administrateur@chezmoi.com')
 			->send(new Contact($request->except('_token')));
+		// Gc7::aff($contact);
 
-		return view('pages.confirm');
+		return view('pages.confirm', compact('contact'));
 	}
 }

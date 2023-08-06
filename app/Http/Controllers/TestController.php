@@ -10,6 +10,7 @@ use App\Models\Film;
 use App\Models\User;
 use App\Tools\Gc7;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Process;
 
 class TestController extends Controller
 {
@@ -22,18 +23,20 @@ class TestController extends Controller
 	 */
 	public function index()
 	{
-		$sql = 'show tables;';
+		// $result = Process::run('ls -la');
+
+		// Gc7::aff($result->output());
+
+		// return 'oki';
+		// return $result->output();
 
 		$tables = DB::getDoctrineSchemaManager()->listTableNames();
-
 		foreach ($tables as $table) {
 			$tables[] = $table;
 		}
 
 		$data = User::all();
-
 		// Gc7::aff($data);
-
 		return view(
 			'pages/test',
 			compact('tables', 'data')
