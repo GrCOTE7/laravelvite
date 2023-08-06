@@ -8,10 +8,10 @@
     <br>
     <div class="container">
         <div class="row card text-white bg-dark">
-            <h4 class="card-header">Bravo !</h4>
+            <h2 class="card-header mt-2">Bravo, {{ $contact->nom }} !</h2>
             <div class="card-body">
-                <p class="card-text">Merci. Votre message a bien été enregistré et transmis à l'administrateur du site. Vous recevrez une
-                    réponse rapidement.</p>
+                <p class="card-text">Merci. Votre message a bien été enregistré et transmis à l'administrateur du site. Vous
+                    recevrez une réponse rapidement.</p>
             </div>
         </div>
     </div>

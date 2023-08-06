@@ -8,7 +8,7 @@
     <h1>Contact</h1>
     <div class="container">
         <p class="justify">
-            N.B.: Penser à starter les MailHog<br>
+            N.B.: Penser à starter MailHog<br>
             (Ou autre selon les settings dans le .env)
         </p>
         <div class="row card text-white bg-dark">

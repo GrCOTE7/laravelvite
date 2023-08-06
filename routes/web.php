@@ -47,10 +47,12 @@ Route::get('account', function () {
 
 // Route::resource('users', UsersController::class);
 
-Route::get('contact', [ContactController::class, 'create'])->name('contact.create');
-Route::post('contact', [ContactController::class, 'store'])->name('contact.store');
+Route::get('contact', [ContactController::class, 'create'])
+	->name('contact.create');
+Route::post('contact', [ContactController::class, 'store'])
+	->name('contact.store');
 
-// https://mailtrap.io o r http://localhost:8025 (MailHog)
+// https://mailtrap.io or http://localhost:8025 (MailHog)
 Route::get('/test-contact', function () {
 	return new App\Mail\Contact([
 		'nom'     => 'Durand',
